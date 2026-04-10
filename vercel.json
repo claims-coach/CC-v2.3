@@ -3,6 +3,8 @@
     "NEXT_PUBLIC_CONVEX_URL": "https://fabulous-roadrunner-674.convex.cloud",
     "NEXT_PUBLIC_CONVEX_SITE_URL": "https://fabulous-roadrunner-674.convex.site"
   },
+  "envPrefix": "NEXT_",
   "buildCommand": "npm run build",
-  "devCommand": "npm run dev"
+  "devCommand": "npm run dev",
+  "outputDirectory": ".next"
 }

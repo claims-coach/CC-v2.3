@@ -144,8 +144,8 @@ export default function TasksPage() {
       </div>
 
       {/* Board */}
-      <div style={{ flex: 1, overflow: "hidden", padding: "16px 32px 24px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, height: "100%" }}>
+      <div style={{ flex: 1, overflow: "auto", padding: "16px 32px 24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, minHeight: "100%" }}>
           {COLS.map(col => {
             const filtered = assigneeFilter === "All" ? tasks : tasks?.filter(t => t.assignee === assigneeFilter);
             const ct = filtered?.filter(t => t.status === col.id) ?? [];
