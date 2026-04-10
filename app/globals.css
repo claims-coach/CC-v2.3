@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --blue:        #147EFA;
+  --orange:      #FF8600;
+  --graphite:    #334155;
+  --slate:       #0F172A;
+  --mist:        #F1F5F9;
+  --white:       #FFFFFF;
+  --border:      #E2E8F0;
+  --text:        #334155;
+  --text-muted:  #94A3B8;
+}
+
+* { box-sizing: border-box; }
+
+*::-webkit-scrollbar { width: 5px; height: 5px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+*::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+* { scrollbar-width: thin; scrollbar-color: #CBD5E1 transparent; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--mist);
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  color: var(--text);
+}
+
+a { text-decoration: none; }
+
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+::selection { background: var(--blue); color: white; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Mobile Responsive Layout ─────────────────────────────────────────── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+/* Sidebar: visible on desktop, hidden on mobile */
+.mc-sidebar        { display: flex; }
+.mc-mobile-header  { display: none; }
+.mc-bottom-nav     { display: none; }
+.mc-drawer-overlay { display: none; }
+
+@media (max-width: 768px) {
+  .mc-sidebar        { display: none !important; }
+  .mc-mobile-header  { display: flex !important; }
+  .mc-bottom-nav     { display: flex !important; }
+  .mc-drawer-overlay { display: block; }
+
+  /* Shrink top banner on mobile */
+  .mc-banner { padding: 7px 14px !important; }
+  .mc-banner p { font-size: 10px !important; }
+
+  /* Push content above bottom nav */
+  .mc-main-content { padding-bottom: 64px !important; }
+}
+
+@media (max-width: 768px) {
+  /* Offset fixed top header (52px) */
+  .mc-mobile-pt { padding-top: 52px !important; }
+  /* Hide the MissionBanner on mobile to save space */
+  .mc-banner { display: none !important; }
+}
+
+/* ── Workbench Mobile Layout ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Outer left+right → stack vertically, right sidebar goes below form */
+  .mc-wb-outer  { flex-direction: column !important; overflow-y: visible !important; overflow-x: hidden !important; }
+  .mc-wb-left   { padding: 12px !important; overflow-y: visible !important; }
+  /* Right sidebar (Live Summary): full-width panel at bottom */
+  .mc-wb-right  {
+    width: 100% !important;
+    min-width: 0 !important;
+    border-left: none !important;
+    border-top: 3px solid #147EFA !important;
+    padding: 16px 12px !important;
+    flex-shrink: 0 !important;
+    order: 99 !important;
+  }
+
+  /* Two-column form rows → single column */
+  .mc-row       { flex-direction: column !important; }
+  .mc-grid2     { grid-template-columns: 1fr !important; }
+  .mc-grid3     { grid-template-columns: 1fr 1fr !important; }
+
+  /* Maintenance/aftermarket row grid → simpler */
+  .mc-maint-row  { grid-template-columns: 1fr 1fr auto !important; gap: 6px !important; }
+  .mc-maint-head { display: none !important; }
+
+  /* Workbench top header → compact, no tagline */
+  .mc-wb-header  { padding: 8px 14px !important; min-height: 48px !important; }
+  .mc-wb-toolbar { padding: 8px 12px !important; flex-wrap: wrap !important; gap: 8px !important; }
+  .mc-wb-toolbar-right { flex-wrap: wrap !important; gap: 6px !important; }
+  /* Case selector takes full width on mobile */
+  .mc-case-selector { max-width: 100% !important; }
+
+  /* Comp cards → full width */
+  .mc-comp-grid { grid-template-columns: 1fr 1fr !important; gap: 6px !important; }
+
+  /* Summary value pills → 2-col on mobile */
+  .mc-pill-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Hide non-essential header text on mobile */
+  .mc-wb-header-title { font-size: 13px !important; }
+  .mc-wb-tagline { display: none !important; }
+
+  /* Section cards: reduce horizontal padding */
+  .mc-wb-section { padding: 14px 12px !important; }
+}
+
+/* ── iPhone / iOS Critical Fixes ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* CRITICAL: font-size < 16px causes iOS to zoom in on input focus */
+  input, select, textarea {
+    font-size: 16px !important;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Minimum 44px touch targets for all interactive elements */
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  input[type="email"],
+  select {
+    min-height: 44px !important;
+    padding: 10px 12px !important;
+  }
+  textarea { min-height: 80px !important; padding: 10px 12px !important; }
+
+  button { min-height: 44px !important; }
+
+  /* Workbench: let it flow naturally on mobile (no fixed height clipping) */
+  .mc-wb-flow { height: auto !important; overflow: visible !important; }
+
+  /* Sticky workbench header on mobile
+     NOTE: main has padding-top:52px already, so top:0 = right below fixed nav
+     Using top:0 avoids the double-offset blank bar bug */
+  .mc-wb-sticky  { position: sticky !important; top: 0 !important; z-index: 50 !important; }
+  .mc-wb-sticky2 { position: sticky !important; top: 52px !important; z-index: 49 !important; }
+
+  /* Make workbench header height consistent */
+  .mc-wb-header { min-height: 52px !important; }
+
+  /* Comp card second row: 2x2 instead of 4-in-a-row */
+  .mc-comp-row2 { flex-wrap: wrap !important; }
+  .mc-comp-row2 > * { flex: 1 1 calc(50% - 6px) !important; min-width: calc(50% - 6px) !important; }
+
+  /* Summary grid → single column */
+  .mc-summary-grid { grid-template-columns: 1fr !important; }
+
+  /* Actions buttons → full width */
+  .mc-action-grid { grid-template-columns: 1fr !important; }
+  .mc-action-btn { width: 100% !important; justify-content: center !important; }
+
+  /* Remove padding from cards on mobile */
+  .mc-card-mobile { padding: 14px !important; }
+
+  /* Section title sizing */
+  .mc-section-title { font-size: 13px !important; }
+
+  /* Comp card header: wrap description below controls */
+  .mc-comp-header { flex-wrap: wrap !important; }
+  .mc-comp-header input { min-width: 100% !important; }
+
+  /* Live summary panel: more compact */
+  .mc-wb-right { padding: 14px !important; }
+  .mc-wb-right .mc-summary-big { font-size: 18px !important; }
+
+  /* Scrollable range slider area */
+  .mc-slider-wrap { overflow-x: auto !important; }
+
+  /* Prevent overflow bleed on any row */
+  .mc-row { flex-wrap: wrap !important; }
+  .mc-row > * { min-width: calc(50% - 6px) !important; flex: 1 1 calc(50% - 6px) !important; }
+
+  /* Single-field rows stay full width */
+  .mc-row.mc-row-full > * { min-width: 100% !important; flex: 1 1 100% !important; }
+
+  /* Pill grid 2-col on mobile */
+  .mc-pill-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Case selector full width */
+  .mc-case-selector { max-width: 100% !important; width: 100% !important; }
+
+  /* Toolbar right buttons: wrap */
+  .mc-wb-toolbar { flex-wrap: wrap !important; }
+  .mc-wb-toolbar > * { flex-shrink: 0; }
+}

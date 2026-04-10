@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-04-10T14:00:06.652Z",
+  "pipeline": {
+    "total": 153,
+    "byStage": {
+      "intake": 3,
+      "negotiation": 2,
+      "valuation": 5,
+      "unassigned": 125,
+      "closed": 18
+    },
+    "hotCases": [
+      {
+        "name": "Murad J Mohammed",
+        "vehicle": "2019 Dodge Charger",
+        "stage": "intake",
+        "priority": "high",
+        "daysOpen": 0,
+        "insurer": "Unknown"
+      },
+      {
+        "name": "brad glauser",
+        "vehicle": "",
+        "stage": "intake",
+        "priority": "high",
+        "daysOpen": 0,
+        "insurer": "Unknown"
+      },
+      {
+        "name": "anastasiia kukhar",
+        "vehicle": "2015 Volvo truck VNL",
+        "stage": "intake",
+        "priority": "high",
+        "daysOpen": 0,
+        "insurer": "Unknown"
+      }
+    ]
+  },
+  "pendingTasks": [
+    {
+      "title": "Find Comps",
+      "priority": "high"
+    },
+    {
+      "title": "Pull KBB Value",
+      "priority": "high"
+    },
+    {
+      "title": "Pull JD Power Value",
+      "priority": "high"
+    },
+    {
+      "title": "Run Carfax Report",
+      "priority": "high"
+    },
+    {
+      "title": "Run EPIC VIN Report",
+      "priority": "high"
+    }
+  ],
+  "openNegotiations": [],
+  "recentActivity": [
+    {
+      "agent": "CC",
+      "action": "quentin orem → Negotiation"
+    },
+    {
+      "agent": "CC",
+      "action": "quentin orem → Review"
+    },
+    {
+      "agent": "CC",
+      "action": "quentin orem → Report Draft"
+    },
+    {
+      "agent": "Report Agent",
+      "action": "completed",
+      "details": "ACV report generated: 2022 Toyota RAV4"
+    },
+    {
+      "agent": "Report Agent",
+      "action": "started",
+      "details": "Generating ACV report: 2022 Toyota RAV4"
+    },
+    {
+      "agent": "Watson",
+      "action": "started",
+      "details": "Finding comps: 2022 Toyota RAV4 Limited (98201)"
+    },
+    {
+      "agent": "Watson",
+      "action": "completed",
+      "details": "Found 4 comps for 2019 Kia Forte EX — avg $15,099 (consensus: 0/100, VINs: 0/4) "
+    },
+    {
+      "agent": "Watson",
+      "action": "completed",
+      "details": "Found 4 comps for 2019 Kia Forte EX — avg $14,586 (consensus: 0/100, VINs: 0/4) "
+    }
+  ],
+  "geminiNotesSummary": {
+    "count": 0,
+    "message": "No new Gemini Notes"
+  }
+}
