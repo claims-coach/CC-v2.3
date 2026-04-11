@@ -4,7 +4,7 @@
  * Fire-and-forget: never throws, never blocks the main route.
  */
 
-const CONVEX_URL = "https://calm-warbler-536.convex.cloud";
+const CONVEX_URL = "https://fabulous-roadrunner-674.convex.cloud";
 
 async function callMutation(path: string, args: Record<string, unknown>) {
   try {

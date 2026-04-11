@@ -10,7 +10,7 @@
  *   llama3.2:3b (ollama):    $0 (local)
  */
 
-const CONVEX_URL = "https://calm-warbler-536.convex.cloud";
+const CONVEX_URL = "https://fabulous-roadrunner-674.convex.cloud";
 
 // Cost per 1M tokens [input, output]
 const MODEL_COST: Record<string, [number, number]> = {

@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
 
     // 1. CREATE CASE IN CONVEX
     const caseResponse = await fetch(
-      `${process.env.CONVEX_URL || "https://calm-warbler-536.convex.cloud"}/api/cases:create`,
+      `${process.env.CONVEX_URL || "https://fabulous-roadrunner-674.convex.cloud"}/api/cases:create`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

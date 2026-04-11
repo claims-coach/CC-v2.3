@@ -6,7 +6,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { embed } from "@/lib/embed";
 
-const CONVEX_URL = "https://calm-warbler-536.convex.cloud";
+const CONVEX_URL = "https://fabulous-roadrunner-674.convex.cloud";
 
 async function convexMutation(path: string, args: Record<string, unknown>) {
   const res = await fetch(`${CONVEX_URL}/api/mutation`, {

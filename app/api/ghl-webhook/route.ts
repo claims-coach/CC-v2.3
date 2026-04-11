@@ -13,7 +13,7 @@ import { ConvexHttpClient } from 'convex/browser';
  * Immediately syncs to Mission Control (no 15-min delay)
  */
 
-const CONVEX_URL = 'https://calm-warbler-536.convex.cloud';
+const CONVEX_URL = 'https://fabulous-roadrunner-674.convex.cloud';
 const GHL_API_KEY = process.env.GHL_API_KEY || 'pit-9fc4a175-3f79-4cc2-8e33-4f8ef0ac78c1';
 const GHL_LOCATION = 'Lud9I0SSpb992pgRS4gJ';
 const GHL_BASE = 'https://services.leadconnectorhq.com';

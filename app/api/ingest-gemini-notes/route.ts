@@ -19,7 +19,7 @@ const G_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET!;
 const G_REFRESH       = (process.env.GOOGLE_REFRESH_TOKEN || "").trim();
 const J_REFRESH       = (process.env.JOHNNY_GMAIL_REFRESH_TOKEN || "").trim();
 const SHARED_DRIVE    = "0APRcBs2pWovZUk9PVA";
-const CONVEX_URL      = "https://calm-warbler-536.convex.cloud";
+const CONVEX_URL      = "https://fabulous-roadrunner-674.convex.cloud";
 
 // ── Google auth ───────────────────────────────────────────────────────────────
 async function getGoogleToken(refresh = G_REFRESH): Promise<string | null> {

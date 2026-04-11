@@ -294,7 +294,7 @@ function AcvReport({ state }: { state: any }) {
 
 async function beatConvex(path: string, args: Record<string, unknown>) {
   try {
-    await fetch("https://calm-warbler-536.convex.cloud/api/mutation", {
+    await fetch("https://fabulous-roadrunner-674.convex.cloud/api/mutation", {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ path, args, format: "json" }),
       signal: AbortSignal.timeout(3000),
@@ -317,7 +317,7 @@ export async function POST(req: NextRequest) {
     const claim   = (state.claimNumber || "DRAFT").replace(/[^a-zA-Z0-9-]/g, "_");
         beatConvex("agents:completeTask", { name: "Report Agent", result: `ACV report generated: ${vehStr}` });
     // Track report generation (no external AI in PDF render, but log the event)
-    fetch("https://calm-warbler-536.convex.cloud/api/mutation", {
+    fetch("https://fabulous-roadrunner-674.convex.cloud/api/mutation", {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ path: "aiUsage:log", args: { ts: Date.now(), provider: "anthropic", model: "react-pdf", agentName: "Report Agent", route: "generate-acv-report", success: true }, format: "json" }),
     }).catch(() => {});

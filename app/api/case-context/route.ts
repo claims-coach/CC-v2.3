@@ -13,7 +13,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { trackAI, openaiWithTracking, claudeWithTracking } from "@/lib/trackAI";
 import { getModel } from "@/lib/models";
 
-const CONVEX_URL    = "https://calm-warbler-536.convex.cloud";
+const CONVEX_URL    = "https://fabulous-roadrunner-674.convex.cloud";
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY || "";
 
 async function convexQuery(path: string, args: Record<string, unknown>) {

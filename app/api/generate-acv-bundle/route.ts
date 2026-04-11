@@ -3,7 +3,7 @@ import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import { generateAcvCoverPdf } from "@/lib/generateAcvCoverPdf";
 import { saveBundleToDrive } from "@/lib/drive";
 
-const CONVEX_URL = "https://calm-warbler-536.convex.cloud";
+const CONVEX_URL = "https://fabulous-roadrunner-674.convex.cloud";
 
 async function fetchAttachments(claimId: string): Promise<any[]> {
   try {
