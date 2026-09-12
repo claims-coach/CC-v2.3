@@ -88,6 +88,26 @@ button:focus-visible, a:focus-visible {
   .mc-banner { display: none !important; }
 }
 
+/* ── Public/Booking Page Layout Override ───────────────────────────────────
+   The booking page needs to escape the dashboard's overflow:hidden trap
+   so mobile users can scroll through the full GHL booking form.
+   ──────────────────────────────────────────────────────────────────────── */
+.book-page-standalone {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  background: #F8FAFC !important;
+}
+
+/* Hide dashboard chrome when booking page is active */
+.book-page-standalone ~ *,
+body:has(.book-page-standalone) > div > .mc-sidebar,
+body:has(.book-page-standalone) > div > div > .mc-banner {
+  display: none !important;
+}
+
 /* ── Workbench Mobile Layout ───────────────────────────────────────────── */
 @media (max-width: 768px) {
   /* Outer left+right → stack vertically, right sidebar goes below form */
