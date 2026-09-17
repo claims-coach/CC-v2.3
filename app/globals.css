@@ -212,3 +212,21 @@ button:focus-visible, a:focus-visible {
   .mc-wb-toolbar { flex-wrap: wrap !important; }
   .mc-wb-toolbar > * { flex-shrink: 0; }
 }
+
+/* ── Candidacy Result Card: Prevent hyphenation ────────────────────────── */
+.mc-result-card,
+.mc-result-card * {
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Prevent hyphenation on any element containing "appraisal" text in result banners */
+.mc-result-banner,
+.mc-candidacy-result {
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+}
